@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pillage the Village</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+
+<body class="container-fluid text-light">
+
+  <header class="row">
+    <div class="col-12 text-center">
+      <h1>Pillage the Village!</h1>
+    </div>
+  </header>
+
+  <div class="row main-row align-items-center">
+    <div class="col-4 d-flex align-items-center justify-content-center">
+      <div class="item-counters d-flex flex-column">
+        <span id="lootCount">Total Loot:</span>
+        <span id="biggaBagCount">Bigga Bags:</span>
+        <span id="biggaChoppaCount">Bigga Choppas:</span>
+        <span id="sneakyGitsCount">Sneaky Gits:</span>
+        <span id="weirdboyShamanCount">Weirdboy Shamans: </span>
+      </div>
+    </div>
+    <div class="col-4 d-flex justify-content-center">
+      <div class="">
+        <img onclick="pillage()" src="https://i.redd.it/ktow8iktyyl21.jpg" class="img-fluid village-img" alt="">
+      </div>
+      
+    </div>
+    <div class="col-4 d-flex">
+      <div class="buttons d-flex flex-column">
+        <span id="biggaBagsPrice"></span>
+        <button class="biggaChoppasPrice" type="button" onclick="buyBiggaBags()">Buy Bigga Bags (+1 to click)</button>
+        <span id="biggaChoppasPrice"></span>
+        <button class="" type="button" onclick="buyBiggaChoppas()">Buy Bigga Choppas (+5 to click) </button>
+        <span id="sneakyGitsPrice"></span>
+        <button class="" type="button" onclick="buySneakyGit()">Hire Sneaky Gits (+1 every 2 seconds)</button>
+        <span id="weirdboyShamanPrice"></span>
+        <button class="" type="button" onclick="buyWeirdboyShaman()">Hire Weirdboy Shaman (+5 every 2 seconds)</button>
+      </div>
+    </div>
+  </div>
+<script src="main.js"></script>
+</body>
+</html>
