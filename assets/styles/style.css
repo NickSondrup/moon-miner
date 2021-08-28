@@ -1,12 +1,32 @@
 body{
-  background-image: url('https://i.pinimg.com/originals/06/27/23/06272369b51fd7ba4600dceaf6b9ebdf.jpg');
+  background-image: url('https://i.pinimg.com/originals/95/14/9c/95149cf6c4c65fea23fb39e9d6744f69.jpg');
+}
+.village-img{
+  cursor: pointer;
+  user-select: none;
 }
 
-
-.main-row{
+.game-row{
  height: 80vh;
 }
 
 .village-img{
   max-width: 400px
+}
+
+.bags-button{
+background-color: rgb(182, 182, 0)
+}
+
+.carts-button{
+background-color: rgb(0, 100, 0);
+}
+
+.sneak-thieves-button{
+background-color: black;
+color: aliceblue;
+}
+
+.viking-hordes-button{
+background-color: brown;
 }

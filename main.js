@@ -1,14 +1,14 @@
 let loot = 0
 let clickUpgrades ={
-  biggaBags: {
-    name: 'Bigga Lootin Bags',
+  extraLootBags: {
+    name: 'Extra Loot Bags',
     price: 5,
     quantity: 0,
     multiplier: 1
   },
 
-  biggaChoppas: {
-    name: 'Bigga Choppas',
+  lootCarts: {
+    name: 'Loot Carts',
     price: 10,
     quantity: 0,
     multiplier: 5
@@ -16,14 +16,14 @@ let clickUpgrades ={
 }
 
 let passiveUpgrades = {
-  sneakyGits:{
-    name: 'Sneaky Gits',
+  sneakThieves:{
+    name: 'Sneak Thieves',
     price: 5,
     quantity: 0,
     multiplier: 1
   },
-  weirdBoyShaman: {
-    name: 'Weirdboy Shaman',
+  vikingHordes: {
+    name: 'Viking Hordes',
     price: 10,
     quantity: 0,
     multiplier: 5
@@ -31,47 +31,47 @@ let passiveUpgrades = {
 }
 
 function pillage(){
-  if(clickUpgrades.biggaBags.quantity === 0 && clickUpgrades.biggaChoppas.quantity === 0){
+  if(clickUpgrades.extraLootBags.quantity === 0 && clickUpgrades.lootCarts.quantity === 0){
     loot++
   }
-  if(clickUpgrades.biggaBags.quantity > 0){
-    loot += (clickUpgrades.biggaBags.quantity*clickUpgrades.biggaBags.multiplier+1)
+  if(clickUpgrades.extraLootBags.quantity > 0){
+    loot += (clickUpgrades.extraLootBags.quantity*clickUpgrades.extraLootBags.multiplier+1)
   }
-  if(clickUpgrades.biggaChoppas.quantity > 0){
-    loot += (clickUpgrades.biggaChoppas.quantity*clickUpgrades.biggaChoppas.multiplier+1)
+  if(clickUpgrades.lootCarts.quantity > 0){
+    loot += (clickUpgrades.lootCarts.quantity*clickUpgrades.lootCarts.multiplier+1)
   }
   update()
 }
 
-function buyBiggaBags(){
-if(loot >= clickUpgrades.biggaBags.price){
-  clickUpgrades.biggaBags.quantity++
-  loot -= clickUpgrades.biggaBags.price
-  clickUpgrades.biggaBags.price = clickUpgrades.biggaBags.price*2
+function buyExtraLootBags(){
+if(loot >= clickUpgrades.extraLootBags.price){
+  clickUpgrades.extraLootBags.quantity++
+  loot -= clickUpgrades.extraLootBags.price
+  clickUpgrades.extraLootBags.price = clickUpgrades.extraLootBags.price*2
   }
   update()
 }
-function buyBiggaChoppas(){
-if(loot >= clickUpgrades.biggaChoppas.price){
-  clickUpgrades.biggaChoppas.quantity++
-  loot -= clickUpgrades.biggaChoppas.price
-  clickUpgrades.biggaChoppas.price = clickUpgrades.biggaChoppas.price*2
+function buyLootCarts(){
+if(loot >= clickUpgrades.lootCarts.price){
+  clickUpgrades.lootCarts.quantity++
+  loot -= clickUpgrades.lootCarts.price
+  clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price*2
   }
   update()
 }
-function buySneakyGit(){
-if(loot >= passiveUpgrades.sneakyGits.price){
-  passiveUpgrades.sneakyGits.quantity++
-  loot -= passiveUpgrades.sneakyGits.price
-  passiveUpgrades.sneakyGits.price = passiveUpgrades.sneakyGits.price*2
+function buySneakThieves(){
+if(loot >= passiveUpgrades.sneakThieves.price){
+  passiveUpgrades.sneakThieves.quantity++
+  loot -= passiveUpgrades.sneakThieves.price
+  passiveUpgrades.sneakThieves.price = passiveUpgrades.sneakThieves.price*2
   }
   update()
 }
-function buyWeirdboyShaman(){
-if(loot >= passiveUpgrades.weirdBoyShaman.price){
-  passiveUpgrades.weirdBoyShaman.quantity++
-  loot -= passiveUpgrades.weirdBoyShaman.price
-  passiveUpgrades.weirdBoyShaman.price = passiveUpgrades.weirdBoyShaman.price*2
+function buyVikingHordes(){
+if(loot >= passiveUpgrades.vikingHordes.price){
+  passiveUpgrades.vikingHordes.quantity++
+  loot -= passiveUpgrades.vikingHordes.price
+  passiveUpgrades.vikingHordes.price = passiveUpgrades.vikingHordes.price*2
   }
   update()
 }
@@ -89,30 +89,26 @@ function startInterval(){
   setInterval(() => {collectAutoUpgrades()}, 2000)
 }
 
-
-
-  // if(passiveUpgrades.sneakyGits.quantity > 0){
-  //   loot += (passiveUpgrades.sneakyGits.quantity*passiveUpgrades.sneakyGits.multiplier)
-  // }
-  // if(passiveUpgrades.weirdBoyShaman.quantity > 0){
-  //   loot += (passiveUpgrades.weirdBoyShaman.quantity*passiveUpgrades.weirdBoyShaman.multiplier)
-  // }
-
-
-
+function preventContext(){
+  event.preventDefault()
+  console.log('get back to pillaging!')
+}
 
 
 function update(){
-  document.getElementById('lootCount').textContent ='Total Loot: ' + loot.toString()
-  document.getElementById('biggaBagCount').textContent = 'Bigga Bags: ' + clickUpgrades.biggaBags.quantity.toString()
-  document.getElementById('biggaChoppaCount').textContent = 'Bigga Choppas: ' + clickUpgrades.biggaChoppas.quantity.toString()
-  document.getElementById('sneakyGitsCount').textContent = 'Sneak Gits: ' + passiveUpgrades.sneakyGits.quantity.toString()
-  document.getElementById('weirdboyShamanCount').textContent = 'Weirdboy Shamans: ' + passiveUpgrades.weirdBoyShaman.quantity.toString()
-  document.getElementById('biggaBagsPrice').textContent = 'Price: ' + clickUpgrades.biggaBags.price.toString()
-  document.getElementById('biggaChoppasPrice').textContent = 'Price: ' + clickUpgrades.biggaChoppas.price.toString()
-  document.getElementById('sneakyGitsPrice').textContent = 'Price: ' + passiveUpgrades.sneakyGits.price.toString()
-  document.getElementById('weirdboyShamanPrice').textContent = 'Price: ' +   passiveUpgrades.weirdBoyShaman.price.toString()
-  
+  document.getElementById('lootCount').innerText ='Total Loot: ' + loot
+  document.getElementById('extraLootBagsCount').innerText = 'Extra Loot Bags: ' + clickUpgrades.extraLootBags.quantity
+  document.getElementById('lootCartsCount').innerText = 'Loot Carts: ' + clickUpgrades.lootCarts.quantity
+  document.getElementById('sneakThievesCount').innerText = 'Sneak Thieves: ' + passiveUpgrades.sneakThieves.quantity
+  document.getElementById('vikingHordesCount').innerText = 'Viking Hordes: ' + passiveUpgrades.vikingHordes.quantity
+  document.getElementById('extraLootBagsPrice').innerText = 'Price: ' + clickUpgrades.extraLootBags.price
+  document.getElementById('lootCartsPrice').innerText = 'Price: ' + clickUpgrades.lootCarts.price
+  document.getElementById('sneakThievesPrice').innerText = 'Price: ' + passiveUpgrades.sneakThieves.price
+  document.getElementById('vikingHordesPrice').innerText = 'Price: ' +   passiveUpgrades.vikingHordes.price
+  document.getElementById('clickCountMultiplier').innerText = 'Click Multiplier: ' + (clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity
+     + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity)
+  document.getElementById('passiveCountMultiplier').innerText = 'Passive Multiplier: ' + (passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
+     + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity)
 }
 
 
