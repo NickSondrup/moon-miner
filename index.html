@@ -16,7 +16,7 @@
 
   <header class="row">
     <div class="col-12 text-center">
-      <h1 class="pt-3 ye-old-speak-title">Pillage the Village!</h1>
+      <h1 class="pt-1 ye-old-speak-title">Pillage the Village!</h1>
     </div>
   </header>
   
@@ -33,8 +33,9 @@
     </div>
     <div class="col-md-4 col-sm-6 d-flex justify-content-center">
       <div class="text-center">
+        <span id="lootCollected" class="opacity-50"></span>
         <h2 id="lootCount" class="fw-bold">Total Loot:</h2>
-        <img onclick="pillage(); villageSally()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
+        <img onclick="pillage(); villageSally(); hordingHordes()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
       </div>
     </div>
       
@@ -42,16 +43,19 @@
       <div class="card bg-dark opacity-75 d-flex flex-column fs-4">
 
         <span class="fw-bold fs-3" id="extraLootBagsPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg bags-button fw-bold" type="button" onclick="buyExtraLootBags()">Buy Extra Loot Bags (+1 to click)</button>
+        <button class="rounded-pill border-0 shadow-lg bags-button fw-bold" type="button" onclick="buyClickItems('extraLootBags')">Buy Extra Loot Bags (+1 to click)</button>
 
         <span class="fw-bold fs-3" id="lootCartsPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg carts-button fw-bold" type="button" onclick="buyLootCarts()">Buy Loot Carts (+5 to click) </button>
+        <button class="rounded-pill border-0 shadow-lg carts-button fw-bold" type="button" onclick="buyClickItems('lootCarts')">Buy Loot Carts (+5 to click) </button>
 
         <span class="fw-bold fs-3" id="sneakThievesPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg sneak-thieves-button fw-bold" type="button" onclick="buySneakThieves()">Hire Sneak Thieves (+1 every 2 seconds)</button>
+        <button class="rounded-pill border-0 shadow-lg sneak-thieves-button fw-bold" type="button" onclick="buyPassiveItems('sneakThieves')">Hire Sneak Thieves (+1 every 2 seconds)</button>
 
         <span class="fw-bold fs-3" id="vikingHordesPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg viking-hordes-button fw-bold" type="button" onclick="buyVikingHordes()">Hire Viking Hordes (+5 every 2 seconds)</button>
+        <button class="rounded-pill border-0 shadow-lg viking-hordes-button fw-bold" type="button" onclick="buyPassiveItems('vikingHordes')">Hire Viking Hordes (+5 every 2 seconds)</button>
+
+          
+        <button class="rounded-pill border-0 shadow-lg viking-feast-button fw-bold disappear my-2" id="vikingFeast" type="button" onclick="vikingFeast()">Throw a Victory Feast!</button>
       </div>
     </div>
   </div>

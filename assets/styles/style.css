@@ -40,3 +40,6 @@ background-color: brown;
   font-family: 'New Rocker', cursive;
 }
 
+.disappear{
+  display: none;
+}
