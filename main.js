@@ -43,6 +43,46 @@ function pillage(){
   update()
 }
 
+function villageSally(){
+  let villageClickAttempt = Math.round(Math.random()*10)
+  let villagePassiveAttempt = Math.round(Math.random()*10)
+  if(villageClickAttempt >= 9 && clickUpgrades.extraLootBags.quantity > 0 && clickUpgrades.lootCarts.quantity > 0){
+    for(let key in clickUpgrades){
+      clickUpgrades[key].quantity--
+    }
+    clickUpgrades.extraLootBags.price = clickUpgrades.extraLootBags.price / 2
+    clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price / 2
+    // @ts-ignore
+    Swal.fire({
+      title: 'Sweet!',
+      text: 'Modal with a custom image.',
+      imageUrl: 'https://www.wallpapertip.com/wmimgs/27-279914_medieval-knight-wallpaper-hd-knights-fight-wallpaper-fantasy.jpg',
+      imageWidth: 400,
+      imageHeight: 250,
+      imageAlt: 'Custom image',
+      background: 'black',
+    })
+  }
+  if(villagePassiveAttempt >= 9 && passiveUpgrades.sneakThieves.quantity > 0 && passiveUpgrades.vikingHordes.quantity > 0){
+    for(let key in passiveUpgrades){
+      passiveUpgrades[key].quantity--
+    }
+    passiveUpgrades.sneakThieves.price = passiveUpgrades.sneakThieves.price / 2
+    passiveUpgrades.vikingHordes.price = passiveUpgrades.vikingHordes.price / 2
+    // @ts-ignore
+    Swal.fire({
+      title: 'Sweet!',
+      text: 'Modal with a custom image.',
+      imageUrl: 'https://i.pinimg.com/474x/aa/fe/b6/aafeb6ece4bd57f893a39b6dc1d1d059.jpg',
+      imageWidth: 400,
+      imageHeight: 250,
+      imageAlt: 'Custom image',
+      background: 'black'
+    })
+  }
+  update()
+}
+
 function buyExtraLootBags(){
 if(loot >= clickUpgrades.extraLootBags.price){
   clickUpgrades.extraLootBags.quantity++

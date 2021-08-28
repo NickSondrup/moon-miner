@@ -5,25 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pillage the Village</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles/style.css">
   
 </head>
 
-<body class="container-fluid text-light">
+<body class="container-fluid text-light ye-old-speak">
 
   <header class="row">
     <div class="col-12 text-center">
-      <h1 class="pt-3">Pillage the Village!</h1>
+      <h1 class="pt-3 ye-old-speak-title">Pillage the Village!</h1>
     </div>
   </header>
-
-  <div class="row">
-    <div class="col-12 text-center">
-    </div>
-  </div>
   
   <div class="row game-row align-items-center">
-    <div class="col-4 d-flex align-items-center justify-content-center">
+    <div class="col-md-4 col-sm-6 d-flex align-items-center justify-content-center">
       <div class="card bg-dark opacity-75 px-3 d-flex flex-column fw-bold fs-3">
         <h2 class="fs-1" id="clickCountMultiplier">Click Multiplier: </h2>
         <span class="text-warning" id="extraLootBagsCount">Extra Loot Bags:</span>
@@ -33,14 +31,14 @@
         <span class="text-danger" id="vikingHordesCount">Viking Hordes: </span>
       </div>
     </div>
-    <div class="col-4 d-flex justify-content-center">
+    <div class="col-md-4 col-sm-6 d-flex justify-content-center">
       <div class="text-center">
         <h2 id="lootCount" class="fw-bold">Total Loot:</h2>
-        <img onclick="pillage()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
+        <img onclick="pillage(); villageSally()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
       </div>
     </div>
       
-    <div class="col-4 d-flex">
+    <div class="col-md-4 col-sm-12  d-flex">
       <div class="card bg-dark opacity-75 d-flex flex-column fs-4">
 
         <span class="fw-bold fs-3" id="extraLootBagsPrice"></span>
@@ -57,6 +55,7 @@
       </div>
     </div>
   </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="main.js"></script>
 </body>
 </html>
