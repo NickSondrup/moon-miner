@@ -238,7 +238,7 @@ function update(){
         document.getElementById('delegator').classList.remove('disappear')
       }
       if(clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity >= 30|| passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
-        + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity >= 50){
+        + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity >= 30){
         document.getElementById('mathematician').classList.remove('disappear')
       }
       if(attacks >= 5){
