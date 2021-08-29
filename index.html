@@ -16,7 +16,7 @@
 
   <header class="row">
     <div class="col-12 text-center">
-      <h1 class="pt-1 ye-old-speak-title">Pillage the Village!</h1>
+      <h1 class="pt-1 m-0 ye-old-speak-title">Pillage the Village!</h1>
     </div>
   </header>
   
@@ -36,13 +36,14 @@
         <h6 onclick="help()" class="help opacity-50">HELP</h6>
         <span id="lootCollected" class="opacity-50"></span>
         <h2 id="lootCount" class="fw-bold">Total Loot:</h2>
-        <img onclick="pillage(); villageSally(); hordingHordes()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
-        <h3 class="text-black">Click to pillage!</h3>
+        <h5 class="opacity-50">Click to pillage!</h5>
+        <img onclick="pillage(); villageSally(); hordingHordes();" src="assets/pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
       </div>
     </div>
       
-    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-      <div class="card bg-dark opacity-75 d-flex flex-column fs-4">
+    <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+      <h3 class="opacity-75">SHOP:</h3>
+      <div class="card shadow-lg bg-dark opacity-75 d-flex flex-column fs-4 p-1">
 
         <span class="fw-bold fs-3" id="extraLootBagsPrice"></span>
         <button class="rounded-pill border-0 shadow-lg bags-button fw-bold" type="button" onclick="buyClickItems('extraLootBags')">Buy Extra Loot Bags (+1 to click)</button>
@@ -51,17 +52,58 @@
         <button class="rounded-pill border-0 shadow-lg carts-button fw-bold" type="button" onclick="buyClickItems('lootCarts')">Buy Loot Carts (+5 to click) </button>
 
         <span class="fw-bold fs-3" id="sneakThievesPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg sneak-thieves-button fw-bold" type="button" onclick="buyPassiveItems('sneakThieves')">Hire Sneak Thieves (+1 every 2 seconds)</button>
+        <button class="rounded-pill border-0 shadow-lg sneak-thieves-button fw-bold" type="button" onclick="buyPassiveItems('sneakThieves')">Hire Sneak Thieves (+1 every 1 seconds)</button>
 
         <span class="fw-bold fs-3" id="vikingHordesPrice"></span>
-        <button class="rounded-pill border-0 shadow-lg viking-hordes-button fw-bold" type="button" onclick="buyPassiveItems('vikingHordes')">Hire Viking Hordes (+5 every 2 seconds)</button>
+        <button class="rounded-pill border-0 shadow-lg viking-hordes-button fw-bold mb-2" type="button" onclick="buyPassiveItems('vikingHordes')">Hire Viking Hordes (+5 every 1 seconds)</button>
 
           
-        <button class="rounded-pill border-0 shadow-lg viking-feast-button fw-bold disappear my-2 mt-4" id="vikingFeast" type="button" onclick="vikingFeast()">Throw a Victory Feast!</button>
+        <button class="rounded-pill border-0 shadow-lg viking-feast-button fw-bold disappear my-2" id="vikingFeast" type="button" onclick="vikingFeast()">Throw a Victory Feast!</button>
       </div>
     </div>
   </div>
-  <audio src="this-is-suppose-to-be-a-happy-occasion - Copy.mp3" id="feastAudio"></audio>
+<div class="row justify-content-center">
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center my-1">
+    <div id="horder" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img img-fluid" src="assets/gold-chest.png" alt="">
+      <p><b>Horder Unlocked!</b> You've pillaged waaaaaay too much stuff.</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center mb-1">
+    <div id="theCollector" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img bg-dark" src="assets/the-collector.png" alt="">
+      <p><b>The Collector Unlocked!</b> You like collecting things don't you?</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center mb-1">
+    <div id="partyPlanner" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img" src="assets/cartoon-meat.png" alt="">
+      <p><b>Party Planner Unlocked!</b> You are now head of the party planning committee. take that Phillis and Angela!</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center mb-1">
+    <div id="delegator" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img" src="assets/lazy-boy.png" alt="">
+      <p><b>Delegator Unlocked!</b> Why work harder when you can have other's work harder for you?</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center mb-1">
+    <div id="mathematician" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img" src="assets/einstein.png" alt="">
+      <p><b>Mathematician Unlocked!</b> Ewwwww math.</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 col-xl-2 d-flex justify-content-center mb-1">
+    <div id="defender" class="card bg-dark opacity-75 d-flex flex-row disappear">
+      <img class="achievement-img" src="assets/shield.png" alt="">
+      <p><b>Defender Unlocked!</b> They kept coming, more fun for you!</p>
+    </div>
+  </div>
+</div>
+
+
+
+  <audio src="assets/this-is-suppose-to-be-a-happy-occasion - Copy.mp3" id="feastAudio"></audio>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="main.js"></script>
 </body>

@@ -1,6 +1,9 @@
 let loot = 0
 let lootCollected = 0
-let winningLoot = 50
+let winningLoot = 5000
+let feastCount = 0
+let passiveTotalCollected = 0
+let attacks = 0
 
 let clickUpgrades ={
   extraLootBags: {
@@ -9,7 +12,7 @@ let clickUpgrades ={
     quantity: 0,
     multiplier: 1
   },
-
+  
   lootCarts: {
     name: 'Loot Carts',
     price: 10,
@@ -63,6 +66,7 @@ function villageSally(){
     }
     clickUpgrades.extraLootBags.price = clickUpgrades.extraLootBags.price / 2
     clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price / 2
+    attacks++
     // @ts-ignore
     Swal.fire({
       title: 'The Village defenders have sallied forth!',
@@ -81,6 +85,7 @@ function villageSally(){
     }
     passiveUpgrades.sneakThieves.price = passiveUpgrades.sneakThieves.price / 2
     passiveUpgrades.vikingHordes.price = passiveUpgrades.vikingHordes.price / 2
+    attacks++
     // @ts-ignore
     Swal.fire({
       title: 'The Village has hired some sellswords!',
@@ -97,100 +102,102 @@ function villageSally(){
 }
 
 function buyClickItems(item){
-if(loot >= clickUpgrades[item].price){
-  clickUpgrades[item].quantity++
-  loot -= clickUpgrades[item].price
-  clickUpgrades[item].price = clickUpgrades[item].price*2
+  if(loot >= clickUpgrades[item].price){
+    clickUpgrades[item].quantity++
+    loot -= clickUpgrades[item].price
+    clickUpgrades[item].price = clickUpgrades[item].price*2
   }
   update()
 }
 // function buyLootCarts(){
-// if(loot >= clickUpgrades.lootCarts.price){
-//   clickUpgrades.lootCarts.quantity++
-//   loot -= clickUpgrades.lootCarts.price
-//   clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price*2
-//   }
-//   update()
-// }
-function buyPassiveItems(item){
-if(loot >= passiveUpgrades[item].price){
-  passiveUpgrades[item].quantity++
-  loot -= passiveUpgrades[item].price
-  passiveUpgrades[item].price = passiveUpgrades[item].price*2
-  }
-  update()
-}
-// function buyVikingHordes(){
-// if(loot >= passiveUpgrades.vikingHordes.price){
-//   passiveUpgrades.vikingHordes.quantity++
-//   loot -= passiveUpgrades.vikingHordes.price
-//   passiveUpgrades.vikingHordes.price = passiveUpgrades.vikingHordes.price*2
-//   }
-//   update()
-// }
-
-function hordingHordes(){
-  if(loot >= winningLoot){
-
-    // @ts-ignore
-    Swal.fire({
-      title: 'Congrats, you like win or something.',
-      text: "Now close this tab and go code!",
-      imageUrl: 'https://i.imgflip.com/3oartw.jpg',
-      imageWidth: 400,
-      imageHeight: 500,
-      imageAlt: 'Custom image',
-      background: 'black',
-      timerProgressBar: true,
-    })
-    document.getElementById('vikingFeast').classList.remove('disappear')
-  }
-}
-
-function vikingFeast(){
-if(loot >= winningLoot){
-  loot = 0
-  for(let key in clickUpgrades){
-    clickUpgrades[key].quantity = 0
-  }
-  for(let key in passiveUpgrades){
-    passiveUpgrades[key].quantity = 0
-  }
-  clickUpgrades.extraLootBags.price = 5
-  clickUpgrades.lootCarts.price = 10
-  passiveUpgrades.sneakThieves.price = 5
-  passiveUpgrades.vikingHordes.price = 10
-  // @ts-ignore
-  document.getElementById('feastAudio').play()
-
-  document.getElementById('vikingFeast').classList.add('disappear')
-}
-// @ts-ignore
-Swal.fire({
-  title: 'Oh no! A surprise attack!',
-  text: "While everyone was distracted by the festivities the village took all their, i mean all our stuff!",
-  imageUrl: 'https://j.gifs.com/ml8VAX.gif',
-  imageWidth: 400,
-  imageHeight: 250,
-  imageAlt: 'Custom image',
-  background: 'black',
-  
-})
-}
-
-function collectAutoUpgrades(){
-  let passiveTotal = 0
-  for(let key in passiveUpgrades){
-     passiveTotal += passiveUpgrades[key].multiplier * passiveUpgrades[key].quantity
-  }
-  loot += passiveTotal
-  lootCollected += passiveTotal
-  update()
-}
-
-function startInterval(){
-  setInterval(() => {collectAutoUpgrades()}, 2000)
-}
+  // if(loot >= clickUpgrades.lootCarts.price){
+    //   clickUpgrades.lootCarts.quantity++
+    //   loot -= clickUpgrades.lootCarts.price
+    //   clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price*2
+    //   }
+    //   update()
+    // }
+    function buyPassiveItems(item){
+      if(loot >= passiveUpgrades[item].price){
+        passiveUpgrades[item].quantity++
+        loot -= passiveUpgrades[item].price
+        passiveUpgrades[item].price = passiveUpgrades[item].price*2
+      }
+      update()
+    }
+    // function buyVikingHordes(){
+      // if(loot >= passiveUpgrades.vikingHordes.price){
+        //   passiveUpgrades.vikingHordes.quantity++
+        //   loot -= passiveUpgrades.vikingHordes.price
+        //   passiveUpgrades.vikingHordes.price = passiveUpgrades.vikingHordes.price*2
+        //   }
+        //   update()
+        // }
+        
+        function hordingHordes(){
+          if(loot >= winningLoot){
+            
+            // @ts-ignore
+            Swal.fire({
+              title: 'Congrats, you like win or something.',
+              text: "Now close this tab and go code!",
+              imageUrl: 'https://i.imgflip.com/3oartw.jpg',
+              imageWidth: 400,
+              imageHeight: 500,
+              imageAlt: 'Custom image',
+              background: 'black',
+              timerProgressBar: true,
+            })
+            document.getElementById('vikingFeast').classList.remove('disappear')
+          }
+        }
+        
+        function vikingFeast(){
+          feastCount++
+          console.log(feastCount)
+            loot = 0
+            for(let key in clickUpgrades){
+              clickUpgrades[key].quantity = 0
+            }
+            for(let key in passiveUpgrades){
+              passiveUpgrades[key].quantity = 0
+            }
+            clickUpgrades.extraLootBags.price = 5
+            clickUpgrades.lootCarts.price = 10
+            passiveUpgrades.sneakThieves.price = 5
+            passiveUpgrades.vikingHordes.price = 10
+            // @ts-ignore
+            document.getElementById('feastAudio').play()
+            
+            document.getElementById('vikingFeast').classList.add('disappear')
+          
+          // @ts-ignore
+          Swal.fire({
+            title: 'Oh no! A surprise attack!',
+            text: "While everyone was distracted by the festivities the village took all their, i mean all our stuff!",
+            imageUrl: 'https://j.gifs.com/ml8VAX.gif',
+            imageWidth: 400,
+            imageHeight: 250,
+            imageAlt: 'Custom image',
+            background: 'black',
+            
+          })
+        }
+        
+        function collectAutoUpgrades(){
+          let passiveTotal = 0
+          for(let key in passiveUpgrades){
+            passiveTotal += passiveUpgrades[key].multiplier * passiveUpgrades[key].quantity
+          }
+          loot += passiveTotal
+          lootCollected += passiveTotal
+          passiveTotalCollected += passiveTotal
+          update()
+        }
+        
+        function startInterval(){
+          setInterval(() => {collectAutoUpgrades()}, 1000)
+        }
 
 function preventContext(){
   event.preventDefault()
@@ -209,13 +216,36 @@ function update(){
   document.getElementById('sneakThievesPrice').innerText = 'Price: ' + passiveUpgrades.sneakThieves.price
   document.getElementById('vikingHordesPrice').innerText = 'Price: ' +   passiveUpgrades.vikingHordes.price
   document.getElementById('clickCountMultiplier').innerText = 'Click Multiplier: ' + (clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity
-     + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity)
-  document.getElementById('passiveCountMultiplier').innerText = 'Passive Multiplier: ' + (passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
-     + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity)
-     document.getElementById('lootCollected').innerText = 'Total Loot Collected: ' + lootCollected 
-  
-}
-
-
-update()
-startInterval()
+    + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity)
+    document.getElementById('passiveCountMultiplier').innerText = 'Passive Multiplier: ' + (passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
+      + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity)
+      document.getElementById('lootCollected').innerText = 'Total Loot Collected: ' + lootCollected 
+      achievementCheck()
+    }
+    
+    
+    function achievementCheck(){
+      if(lootCollected >= 10000){
+        document.getElementById('horder').classList.remove('disappear')
+      }
+      if(clickUpgrades.extraLootBags.quantity >= 2&&clickUpgrades.lootCarts.quantity >= 2&&passiveUpgrades.sneakThieves.quantity >= 2&&passiveUpgrades.vikingHordes.quantity >= 2){
+        document.getElementById('theCollector').classList.remove('disappear')
+      }
+      if(feastCount >= 2){
+        document.getElementById('partyPlanner').classList.remove('disappear')
+      }
+      if(passiveTotalCollected >= 5000){
+        document.getElementById('delegator').classList.remove('disappear')
+      }
+      if(clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity >= 30|| passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
+        + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity >= 50){
+        document.getElementById('mathematician').classList.remove('disappear')
+      }
+      if(attacks >= 5){
+        document.getElementById('defender').classList.remove('disappear')
+      }
+    }
+    
+    
+    update()
+    startInterval()

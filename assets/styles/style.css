@@ -1,5 +1,6 @@
 body{
   background-image: url('https://i.pinimg.com/originals/95/14/9c/95149cf6c4c65fea23fb39e9d6744f69.jpg');
+  background-size: cover;
 }
 .village-img{
   cursor: pointer;
@@ -7,7 +8,7 @@ body{
 }
 
 .village-img:hover{
-  animation: image-float 2s ease-in-out infinite;;
+  animation: image-float 2s ease-in-out infinite;
 }
 
 .help{
@@ -15,7 +16,7 @@ cursor: pointer;
 }
 
 .game-row{
- height: 80vh;
+ min-height: 70vh;
 }
 
 
@@ -45,8 +46,13 @@ background-color: brown;
   font-family: 'New Rocker', cursive;
 }
 
+.achievement-img{
+  max-height: 100px;
+  max-width: 100px;
+}
+
 .disappear{
-  display: none;
+  display: none !important;
 }
 
 @keyframes image-float{
