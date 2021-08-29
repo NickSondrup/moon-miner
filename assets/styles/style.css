@@ -6,13 +6,18 @@ body{
   user-select: none;
 }
 
+.village-img:hover{
+  animation: image-float 2s ease-in-out infinite;;
+}
+
+.help{
+cursor: pointer;
+}
+
 .game-row{
  height: 80vh;
 }
 
-.village-img{
-  max-width: 400px
-}
 
 .bags-button{
 background-color: rgb(182, 182, 0)
@@ -33,7 +38,7 @@ background-color: brown;
 
 .ye-old-speak-title{
   font-family: 'New Rocker', cursive;
-  font-size: 120px;
+  font-size: 100px;
 }
 
 .ye-old-speak{
@@ -42,4 +47,13 @@ background-color: brown;
 
 .disappear{
   display: none;
+}
+
+@keyframes image-float{
+  0%,100% {
+      transform: translateY(-15px) rotate(5deg);
+  }
+  50%{
+      transform: translateY(0px) rotate(-5deg);
+  }
 }

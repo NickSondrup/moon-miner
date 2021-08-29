@@ -33,13 +33,15 @@
     </div>
     <div class="col-md-4 col-sm-6 d-flex justify-content-center">
       <div class="text-center">
+        <h6 onclick="help()" class="help opacity-50">HELP</h6>
         <span id="lootCollected" class="opacity-50"></span>
         <h2 id="lootCount" class="fw-bold">Total Loot:</h2>
         <img onclick="pillage(); villageSally(); hordingHordes()" src="pngwing.com (1).png" class="img-fluid village-img" alt="" oncontextmenu="preventContext()" draggable="false">
+        <h3 class="text-black">Click to pillage!</h3>
       </div>
     </div>
       
-    <div class="col-md-4 col-sm-12  d-flex">
+    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
       <div class="card bg-dark opacity-75 d-flex flex-column fs-4">
 
         <span class="fw-bold fs-3" id="extraLootBagsPrice"></span>
@@ -55,10 +57,11 @@
         <button class="rounded-pill border-0 shadow-lg viking-hordes-button fw-bold" type="button" onclick="buyPassiveItems('vikingHordes')">Hire Viking Hordes (+5 every 2 seconds)</button>
 
           
-        <button class="rounded-pill border-0 shadow-lg viking-feast-button fw-bold disappear my-2" id="vikingFeast" type="button" onclick="vikingFeast()">Throw a Victory Feast!</button>
+        <button class="rounded-pill border-0 shadow-lg viking-feast-button fw-bold disappear my-2 mt-4" id="vikingFeast" type="button" onclick="vikingFeast()">Throw a Victory Feast!</button>
       </div>
     </div>
   </div>
+  <audio src="this-is-suppose-to-be-a-happy-occasion - Copy.mp3" id="feastAudio"></audio>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="main.js"></script>
 </body>

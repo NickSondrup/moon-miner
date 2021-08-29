@@ -1,6 +1,6 @@
 let loot = 0
 let lootCollected = 0
-let winningLoot = 1000
+let winningLoot = 50
 
 let clickUpgrades ={
   extraLootBags: {
@@ -31,6 +31,11 @@ let passiveUpgrades = {
     quantity: 0,
     multiplier: 5
   }
+}
+
+function help(){
+  // @ts-ignore
+  Swal.fire('Click the shield and axe symbol to Pillage the Village and collect loot. Once you have enough loot you can purchase items in the shop to help you pillage! But be careful the village my attempt to defend itself. If you reach a certain amount of loot you can throw a victory feast for you and your men!')
 }
 
 function pillage(){
@@ -151,13 +156,20 @@ if(loot >= winningLoot){
   for(let key in passiveUpgrades){
     passiveUpgrades[key].quantity = 0
   }
+  clickUpgrades.extraLootBags.price = 5
+  clickUpgrades.lootCarts.price = 10
+  passiveUpgrades.sneakThieves.price = 5
+  passiveUpgrades.vikingHordes.price = 10
+  // @ts-ignore
+  document.getElementById('feastAudio').play()
+
   document.getElementById('vikingFeast').classList.add('disappear')
 }
 // @ts-ignore
 Swal.fire({
   title: 'Oh no! A surprise attack!',
   text: "While everyone was distracted by the festivities the village took all their, i mean all our stuff!",
-  imageUrl: 'https://media.tenor.com/images/f9f2f179b9c88251bd47e4cc90f765c8/tenor.gif',
+  imageUrl: 'https://j.gifs.com/ml8VAX.gif',
   imageWidth: 400,
   imageHeight: 250,
   imageAlt: 'Custom image',
