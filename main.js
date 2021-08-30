@@ -1,6 +1,6 @@
 let loot = 0
 let lootCollected = 0
-let winningLoot = 5000
+let winningLoot = 10000
 let feastCount = 0
 let passiveTotalCollected = 0
 let attacks = 0
@@ -68,6 +68,7 @@ function villageSally(){
     clickUpgrades.lootCarts.price = clickUpgrades.lootCarts.price / 2
     attacks++
     // @ts-ignore
+    // (title = 'generic value')
     Swal.fire({
       title: 'The Village defenders have sallied forth!',
       text: "You've lost 1 of each click item.",
@@ -228,20 +229,20 @@ function update(){
       if(lootCollected >= 10000){
         document.getElementById('horder').classList.remove('disappear')
       }
-      if(clickUpgrades.extraLootBags.quantity >= 2&&clickUpgrades.lootCarts.quantity >= 2&&passiveUpgrades.sneakThieves.quantity >= 2&&passiveUpgrades.vikingHordes.quantity >= 2){
+      if(clickUpgrades.extraLootBags.quantity >= 3&&clickUpgrades.lootCarts.quantity >= 3&&passiveUpgrades.sneakThieves.quantity >= 3&&passiveUpgrades.vikingHordes.quantity >= 3){
         document.getElementById('theCollector').classList.remove('disappear')
       }
-      if(feastCount >= 2){
+      if(feastCount >= 3){
         document.getElementById('partyPlanner').classList.remove('disappear')
       }
-      if(passiveTotalCollected >= 5000){
+      if(passiveTotalCollected >= 6000){
         document.getElementById('delegator').classList.remove('disappear')
       }
-      if(clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity >= 30|| passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
-        + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity >= 30){
+      if(clickUpgrades.extraLootBags.multiplier*clickUpgrades.extraLootBags.quantity + clickUpgrades.lootCarts.multiplier*clickUpgrades.lootCarts.quantity >= 50|| passiveUpgrades.sneakThieves.multiplier*passiveUpgrades.sneakThieves.quantity
+        + passiveUpgrades.vikingHordes.multiplier*passiveUpgrades.vikingHordes.quantity >= 50){
         document.getElementById('mathematician').classList.remove('disappear')
       }
-      if(attacks >= 5){
+      if(attacks >= 10){
         document.getElementById('defender').classList.remove('disappear')
       }
     }
